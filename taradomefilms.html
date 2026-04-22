@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TáradomeFilms | African Stories. Global Screens.</title>
+<meta name="description" content="The cinematic arm of TáraDome Entertainment Group. Motion picture production and distribution since 2004.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#050508;--purple:#6B3FA0;--purple-bright:#8B5CF6;--gold:#C9A84C;--white:#F5F0FF;--muted:rgba(245,240,255,0.5)}
+body{background:var(--black);color:var(--white);font-family:'Didact Gothic',sans-serif;min-height:100vh;overflow-x:hidden}
+.filmstrip{width:100%;height:32px;background:#0a0a12;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid rgba(255,255,255,0.04)}
+.filmstrip-hole{width:20px;height:18px;border:2px solid rgba(255,255,255,0.12);border-radius:3px;flex-shrink:0;margin:0 6px}
+nav{position:fixed;top:32px;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(5,5,8,0.95) 0%,transparent 100%)}
+.nav-parent{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.3s}
+.nav-links a:hover{color:var(--white)}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative}
+.hero::after{content:'';position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(ellipse,rgba(107,63,160,0.18) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(107,63,160,0.4);padding:6px 16px;border-radius:2px;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--purple-bright);margin-bottom:32px;animation:fadeUp 0.8s ease both}
+.hero-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--purple-bright);box-shadow:0 0 8px var(--purple-bright)}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(52px,10vw,110px);font-weight:400;line-height:0.95;letter-spacing:-0.02em;animation:fadeUp 0.8s 0.15s ease both}
+.hero-title em{font-style:italic;color:var(--purple-bright)}
+.hero-title .dot{color:var(--gold)}
+.hero-tagline{margin-top:28px;font-size:15px;color:var(--muted);letter-spacing:0.06em;line-height:1.7;animation:fadeUp 0.8s 0.3s ease both}
+.hero-tagline strong{color:var(--white);font-weight:normal}
+.notify-form{margin-top:48px;display:flex;max-width:440px;width:100%;animation:fadeUp 0.8s 0.45s ease both}
+.notify-form input{flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-right:none;color:var(--white);padding:14px 20px;font-family:'Didact Gothic',sans-serif;font-size:13px;outline:none;border-radius:2px 0 0 2px;transition:border-color 0.3s}
+.notify-form input::placeholder{color:rgba(255,255,255,0.3)}
+.notify-form input:focus{border-color:rgba(107,63,160,0.6)}
+.notify-form button{background:var(--purple);color:var(--white);border:none;padding:14px 24px;font-family:'Didact Gothic',sans-serif;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:0 2px 2px 0;transition:background 0.3s;white-space:nowrap}
+.notify-form button:hover{background:var(--purple-bright)}
+.notify-hint{margin-top:10px;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.05em;animation:fadeUp 0.8s 0.55s ease both}
+.ecosystem{margin-top:64px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;animation:fadeUp 0.8s 0.65s ease both}
+.eco-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2)}
+.eco-link{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,0.12);border-radius:2px;padding:6px 14px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;color:var(--white);transition:border-color 0.3s,color 0.3s}
+.eco-link:hover{border-color:var(--gold);color:var(--gold)}
+.about{max-width:800px;margin:0 auto;padding:80px 24px;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
+.about-label{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--purple-bright);margin-bottom:24px}
+.about-text{font-size:18px;line-height:1.8;color:rgba(255,255,255,0.7)}
+.about-text strong{color:var(--white);font-weight:normal}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06);margin:0 auto;max-width:720px}
+.stat{background:var(--black);padding:40px 24px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--gold);line-height:1}
+.stat-label{margin-top:8px;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+footer{text-align:center;padding:48px 24px;border-top:1px solid rgba(255,255,255,0.06);font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:0.1em}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){nav{padding:16px 24px}.nav-links{display:none}.notify-form{flex-direction:column}.notify-form input{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none;border-radius:2px 2px 0 0}.notify-form button{border-radius:0 0 2px 2px}.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="filmstrip">
+<div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div><div class="filmstrip-hole"></div>
+</div>
+<nav>
+<a href="https://taratechent.com" class="nav-parent">&#9652; TáraDome Entertainment Group</a>
+<ul class="nav-links"><li><a href="#about">About</a></li><li><a href="#notify">Notify Me</a></li><li><a href="https://taratechent.com">TaraTech</a></li></ul>
+</nav>
+<section class="hero" id="notify">
+<div class="hero-eyebrow">TáraDome Entertainment Group</div>
+<h1 class="hero-title">Taradome<em>Films</em><span class="dot">.</span></h1>
+<p class="hero-tagline"><strong>African stories. Global screens.</strong><br>Motion picture production &amp; distribution since 2004 &mdash;<br>from feature films to streaming series.</p>
+<form class="notify-form" onsubmit="handleNotify(event)">
+<input type="email" placeholder="Get notified at launch" id="email-input" required>
+<button type="submit">Notify Me</button>
+</form>
+<p class="notify-hint" id="notify-hint">We'll only email you once &mdash; when we launch.</p>
+<div class="ecosystem">
+<span class="eco-label">Explore the Group</span>
+<a href="#" class="eco-link">TáradomeMusik</a>
+<a href="taradomefilms.html" class="eco-link" style="border-color:rgba(139,92,246,0.5);color:var(--purple-bright)">TáradomeFilms</a>
+<a href="https://taratechent.com" class="eco-link">TaraTech</a>
+</div>
+</section>
+<section class="about" id="about">
+<p class="about-label">The Vision</p>
+<p class="about-text"><strong>TáradomeFilms</strong> is the cinematic arm of TáraDome Entertainment Group &mdash; dedicated to telling <strong>authentic African stories</strong> for audiences worldwide. From Lagos to London to Atlanta, we develop, produce, and distribute feature films, documentaries, and streaming series.</p>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">2004</div><div class="stat-label">Founded</div></div>
+<div class="stat"><div class="stat-num">3</div><div class="stat-label">Continents</div></div>
+<div class="stat"><div class="stat-num">&#8734;</div><div class="stat-label">Stories to Tell</div></div>
+</div>
+<footer><p>&copy; 2026 T&aacute;raDome Entertainment Group &middot; All Rights Reserved</p></footer>
+<script>
+function handleNotify(e){e.preventDefault();var i=document.getElementById('email-input');var h=document.getElementById('notify-hint');h.textContent='You\'re on the list. We\'ll be in touch.';h.style.color='rgba(139,92,246,0.8)';i.value='';i.disabled=true;e.target.querySelector('button').disabled=true;e.target.querySelector('button').textContent='Done';}
+</script>
+</body>
+</html>
