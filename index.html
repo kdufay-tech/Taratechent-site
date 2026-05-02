@@ -1224,7 +1224,7 @@
 </style>
 <style>
 @media (max-width: 768px) {
-  .nav-links { display: flex; flex-wrap: wrap; gap: .25rem; }
+  .nav-links { display: none; } .hamburger { display: flex; } #mainNav.open .nav-links { display: flex; flex-direction: column; position: fixed; top: 60px; left: 0; width: 100%; background: rgba(10,10,20,.97); padding: 1rem; gap: .5rem; z-index: 999; }
   .hero h1 { font-size: clamp(2rem, 8vw, 4rem); }
   .products-grid { grid-template-columns: 1fr !important; }
   .founder-inner { flex-direction: column !important; }
