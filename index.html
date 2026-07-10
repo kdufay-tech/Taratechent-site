@@ -1199,12 +1199,7 @@
 
   /* ── FOUNDER / LEADERSHIP SECTION ── */
   .founder-section { background: var(--dark-2); }
-  .founder-inner { display: grid; grid-template-columns: 1fr 1.8fr; gap: 6rem; align-items: center; }
-  .founder-photo-wrap { position: relative; display: flex; justify-content: center; align-items: center; }
-  .founder-photo { width: 100%; max-width: 340px; border-radius: 4px; position: relative; z-index: 1;
-    filter: drop-shadow(0 0 40px rgba(14,165,233,.2)); object-fit: cover; aspect-ratio: 1/1; object-position: top; }
-  .founder-photo-ring { position: absolute; width: 105%; height: 105%; border-radius: 6px;
-    border: 1px solid rgba(14,165,233,.25); animation: ringRotate 18s linear infinite; }
+  .founder-inner { display: block; }
   .founder-title-tag { font-family: var(--font-condensed); font-size: .8rem; letter-spacing: .22em;
     text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem; display: block; }
   .founder-bio p { margin-bottom: 1.2rem; color: var(--text-dim); line-height: 1.8; font-size: .95rem; }
@@ -1217,8 +1212,6 @@
   .cred-text strong { font-family: var(--font-sans); font-size: .8rem; font-weight: 600; color: var(--text-bright); letter-spacing: .02em; }
   .cred-text span { font-family: var(--font-sans); font-size: .72rem; font-weight: 300; color: var(--text-dim); }
   @media (max-width: 900px) {
-    .founder-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .founder-photo { max-width: 220px; }
     .founder-credentials { grid-template-columns: 1fr; }
   }
 </style>
@@ -1227,8 +1220,6 @@
   .nav-links { display: none; } .hamburger { display: flex; } #mainNav.open .nav-links { display: flex; flex-direction: column; position: fixed; top: 60px; left: 0; width: 100%; background: rgba(10,10,20,.97); padding: 1rem; gap: .5rem; z-index: 999; }
   .hero h1 { font-size: clamp(2rem, 8vw, 4rem); }
   .products-grid { grid-template-columns: 1fr !important; }
-  .founder-inner { flex-direction: column !important; }
-  .founder-photo-wrap { display: none; }
   .stats-grid { grid-template-columns: 1fr 1fr !important; }
   .services-grid { grid-template-columns: 1fr !important; }
   .pillars-grid { grid-template-columns: 1fr !important; }
@@ -1384,10 +1375,6 @@
 
 <section class="founder-section reveal" id="leadership">
   <div class="founder-inner">
-    <div class="founder-photo-wrap reveal">
-      <div class="founder-photo-ring"></div>
-      
-    </div>
     <div class="founder-bio reveal">
       <p class="section-label">The Visionary</p>
       <h2 class="section-title" style="font-size:clamp(2rem,4vw,3rem);">E. Kiszo Ugokwe</h2>
